@@ -7,10 +7,13 @@ const refInput = document.querySelector("input");
 const refCreateBtn = document.querySelector("button[data-create]");
 const refDestroyBtn = document.querySelector("button[data-destroy]");
 
+let size = 30;
+
 function createBoxes(amount) {
-  let size = 30;
   let newBoxes = "";
   for (let i = 0; i < amount; i++) {
+    //чогось кольори інколи з недостатньою кількістью значень
+    //тому ось такий костиль працює норм :)
     let randomColor = getRandomHexColor();
     if (randomColor.length < 7) {
       randomColor += "a";
@@ -27,5 +30,6 @@ refCreateBtn.addEventListener("click", () => {
 });
 
 refDestroyBtn.addEventListener("click", () => {
+  size = 30;
   refBoxes.innerHTML = "";
 });
